@@ -1,5 +1,8 @@
 from flask import Flask, request, render_template
-import os, json, openai
+import os, json
+from openai import OpenAI
+
+client = OpenAI(api_key=os.getenv('API_KEY'))
 
 # Create the application object
 app = Flask(__name__)
@@ -17,16 +20,16 @@ def index():
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
-    response = openai.Completion.create(
-        engine="text-davinci-003",
+    response = client.completions.create(
+        model="gpt-3.5-turbo-instruct",
         prompt=userText,
         max_tokens=1024,
-        n=1,
-        stop=None,
-        temperature=0.9,
+        top_p=1,
+        temperature=0.9
     )
 
-    answer = response["choices"][0]["text"]
+    print(response.choices[0].text)
+    answer = response.choices[0].text
     return str(answer)
 
 
