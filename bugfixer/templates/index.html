@@ -10,16 +10,18 @@
     <h1>Bugfixer</h1>
 </div>
 <form action="/" method="post">
-    <div class="input-group">
-        <label for="bug">Bug:</label>
-        <input type="text" id="bug" name="bug" required>
-    </div>
-    <div class="input-group">
-        <label for="fix">Fix:</label>
-        <input type="text" id="fix" name="fix" required>
-    </div>
-    <div class="input-group">
-        <button type="submit" class="btn">Fix code</button>
+    <button class="submit-button" type="submit">Code Fix</button>
+    <div class="container">
+        <div class="left-column">
+            <h2>Code</h2>
+            <textarea name="code" placeholder="Enter your code here..."></textarea>
+            <textarea name="error" placeholder="Enter the error here..."></textarea>
+        </div>
+        <div class="right-column">
+            <h2>Output</h2>
+            <textarea class="fixed-code" name="output" placeholder="Fixed code" readonly>{{ fixed_code }} </textarea>
+            <textarea class="explanation" name="explanation" placeholder="Explanation" readonly>{{ explanation }}</textarea>
+        </div>
     </div>
 </body>
 </html>
