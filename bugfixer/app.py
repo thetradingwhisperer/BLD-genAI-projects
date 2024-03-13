@@ -37,13 +37,14 @@ def index():
             model="gpt-3.5-turbo-instruct",
             prompt=fixed_code_prompt,
             max_tokens=1024,
-            top_p=1
+            top_p=1,
             temperature=0.9
         )
         fixed_code = fixed_code_response.choices[0].text
-    return render_template("index.html",
+        return render_template("index.html",
                            explanation=explanation,
                            fixed_code=fixed_code)
+    return render_template("index.html")
 
 
 if __name__ == "__main__":

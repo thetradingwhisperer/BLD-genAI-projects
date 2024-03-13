@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>Bugfixer</title>
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 <div class="header">
     <h1>Bugfixer</h1>
+    <a href="#" class="header-logo"><i class="fa-solid fa-hammer"></i></a>
 </div>
 <form action="/" method="post">
     <button class="submit-button" type="submit">Code Fix</button>
@@ -22,6 +24,9 @@
             <textarea class="fixed-code" name="output" placeholder="Fixed code" readonly>{{ fixed_code }} </textarea>
             <textarea class="explanation" name="explanation" placeholder="Explanation" readonly>{{ explanation }}</textarea>
         </div>
+        
+        
     </div>
+</form>
 </body>
 </html>
